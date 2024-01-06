@@ -5,10 +5,10 @@ import RouterLink from '../components/UI/RouterLink.vue'
 <template>
   <div>
     <div class="flex justify-end">
-      <RouterLink to="add-client">
-        Add Client
+      <RouterLink to="home">
+        Back
       </RouterLink>
     </div>
-    <h1 class="text-4xl font-extrabold text-slate-500">Clients</h1>
+    <h1 class="text-4xl font-extrabold text-slate-500">Add Client</h1>
   </div>
 </template>
