@@ -9,6 +9,6 @@ import RouterLink from '../components/UI/RouterLink.vue'
         Back
       </RouterLink>
     </div>
-    <h1 class="text-4xl font-extrabold text-slate-500">Add Client</h1>
+    <h1 class="title">Add Client</h1>
   </div>
 </template>
