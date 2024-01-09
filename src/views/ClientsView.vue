@@ -1,13 +1,13 @@
 <script setup>
-import axios from 'axios'
 import { onMounted, ref, computed } from 'vue'
+import ClientService from '../services/ClientService'
 import RouterLink from '../components/UI/RouterLink.vue'
 import Client from '../components/Client.vue'
 
 const clients = ref([])
 
 onMounted(() => {
-  axios('http://localhost:4000/clients')
+  ClientService.getClients()
     .then(({ data }) => clients.value = data)
     .catch(error => console.error(error))
 })
@@ -58,7 +58,7 @@ const thereAreClients = computed(() => clients.value.length > 0)
     </div>
 
     <div v-else>
-      <p>There are no clients, yet</p>
+      <p class="text-center mt-5">There are no clients, yet</p>
     </div>
   </div>
 </template>
