@@ -1,5 +1,15 @@
 <script setup>
+import axios from 'axios'
 import RouterLink from '../components/UI/RouterLink.vue'
+import { onMounted, ref } from 'vue'
+
+const clients = ref([])
+
+onMounted(() => {
+  axios('http://localhost:4000/clients')
+    .then(({ data }) => clients.value = data)
+    .catch(error => console.error(error))
+})
 </script>
 
 <template>

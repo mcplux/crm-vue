@@ -1,6 +1,10 @@
 <script setup>
 import { FormKit } from '@formkit/vue'
 import RouterLink from '../components/UI/RouterLink.vue'
+
+const handleSubmit = data => {
+  console.log('Submit...', data)
+}
 </script>
 
 <template>
@@ -18,10 +22,12 @@ import RouterLink from '../components/UI/RouterLink.vue'
           type="form" 
           submit-label="Add client" 
           incomplete-message="Some required fields have not been filled out"
+          @submit="handleSubmit"
         >
           <FormKit
             type="text"
             label="Name"
+            name="name"
             placeholder="Client's name"
             validation="required"
           />
@@ -29,6 +35,7 @@ import RouterLink from '../components/UI/RouterLink.vue'
           <FormKit
             type="text"
             label="Last name"
+            name="lastname"
             placeholder="Client last name"
             validation="required"
           />
@@ -36,6 +43,7 @@ import RouterLink from '../components/UI/RouterLink.vue'
           <FormKit
             type="email"
             label="Email"
+            name="email"
             placeholder="Client email"
             validation="required|email"
           />
@@ -43,6 +51,7 @@ import RouterLink from '../components/UI/RouterLink.vue'
           <FormKit
             type="text"
             label="Phone"
+            name="phone"
             placeholder="Client phone"
             help="Phone format: XXX-XXX-XXXX"
             validation="matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/"
@@ -54,12 +63,14 @@ import RouterLink from '../components/UI/RouterLink.vue'
           <FormKit
             type="text"
             label="Company"
+            name="company"
             placeholder="Client company"
           />
 
           <FormKit
             type="text"
             label="Position"
+            name="position"
             placeholder="Client position"
           />
         </FormKit>
