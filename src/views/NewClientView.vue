@@ -1,9 +1,17 @@
 <script setup>
+import axios from 'axios'
+import { useRouter } from 'vue-router';
 import { FormKit } from '@formkit/vue'
 import RouterLink from '../components/UI/RouterLink.vue'
 
+const router = useRouter()
+
 const handleSubmit = data => {
-  console.log('Submit...', data)
+  axios.post('http://localhost:4000/clients', data)
+    .then(response => {
+      router.push({ name: 'home' })
+    })
+    .catch(error => console.error(error))
 }
 </script>
 
