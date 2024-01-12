@@ -22,6 +22,12 @@ const updateStatus = ({ id, status }) => {
     .catch(error => console.error(error))
 }
 
+const deleteClient = id => {
+  ClientService.deleteClient(id)
+    .then(() => clients.value = clients.value.filter(client => client.id !== id))
+    .catch(error => console.error(error))
+}
+
 const thereAreClients = computed(() => clients.value.length > 0)
 </script>
 
@@ -61,6 +67,7 @@ const thereAreClients = computed(() => clients.value.length > 0)
                 :key="client.id"
                 :client="client"
                 @update-status="updateStatus"
+                @delete-client="deleteClient"
               />
             </tbody>
           </table>

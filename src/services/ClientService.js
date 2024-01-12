@@ -13,4 +13,7 @@ export default {
   updateClient(id, data) {
     return api.patch(`/clients/${id}`, data)
   },
+  deleteClient(id) {
+    return api.delete(`/clients/${id}`)
+  }
 }
