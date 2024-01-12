@@ -12,6 +12,16 @@ onMounted(() => {
     .catch(error => console.error(error))
 })
 
+const updateStatus = ({ id, status }) => {
+  ClientService.updateClient(id, {status: !status})
+    .then(() => {
+      const i = clients.value.findIndex(client => client.id === id)
+
+      clients.value[i].status = !status
+    })
+    .catch(error => console.error(error))
+}
+
 const thereAreClients = computed(() => clients.value.length > 0)
 </script>
 
@@ -50,6 +60,7 @@ const thereAreClients = computed(() => clients.value.length > 0)
                 v-for="client in clients"
                 :key="client.id"
                 :client="client"
+                @update-status="updateStatus"
               />
             </tbody>
           </table>

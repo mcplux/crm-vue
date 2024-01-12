@@ -8,6 +8,8 @@ const props = defineProps({
   }
 })
 
+defineEmits(['update-status'])
+
 const clientName = computed(() => `${props.client.name} ${props.client.lastname}`)
 const isActive = computed(() => props.client.status)
 </script>
@@ -34,6 +36,10 @@ const isActive = computed(() => props.client.status)
       <button 
         class="inline-flex rounded-full px-2 text-xs font-semibold leading-5" 
         :class="[isActive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800']"
+        @click="$emit('update-status', {
+          id: client.id,
+          status: client.status,
+        })"
       >
         {{ isActive ? "Active" : "Inactive" }}
       </button>
