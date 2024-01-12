@@ -10,4 +10,7 @@ export default {
   storeClient(data) {
     return api.post('/clients', data)
   },
+  updateClient(id, data) {
+    return api.patch(`/clients/${id}`, data)
+  },
 }

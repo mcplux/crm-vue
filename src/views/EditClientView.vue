@@ -21,7 +21,9 @@ onMounted(() => {
 })
 
 const handleSubmit = data => {
-
+  ClientService.updateClient(id, data)
+    .then(() => router.push({name: 'home'}))
+    .catch(error => console.error(error))
 }
 </script>
 
@@ -38,7 +40,7 @@ const handleSubmit = data => {
       <div class="mx-auto md:w-2/3 py-20 px-6">
         <FormKit 
           type="form" 
-          submit-label="Add client" 
+          submit-label="Save changes" 
           incomplete-message="Some required fields have not been filled out"
           @submit="handleSubmit"
           :value="formData"
