@@ -39,7 +39,7 @@ const isActive = computed(() => props.client.status)
       </button>
     </td>
     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 ">
-      <RouterLink to="/" class="text-indigo-600 hover:text-indigo-900 mr-5 font-bold transition-colors">
+      <RouterLink :to="{name: 'edit-client', params: {id: client.id}}" class="text-indigo-600 hover:text-indigo-900 mr-5 font-bold transition-colors">
         Edit
       </RouterLink>
       <button class="text-red-600 hover:text-red-900 font-bold transition-colors">
